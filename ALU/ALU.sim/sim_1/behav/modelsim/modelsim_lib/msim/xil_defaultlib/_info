@@ -1,0 +1,99 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/FuzzyClouds/Desktop/CSE_490/Project_1/ALU/ALU.sim/sim_1/behav/modelsim
+T_opt
+!s110 1741580051
+VWWBSk=[AX3WKChj:meh_61
+04 10 4 work ALU_Random fast 0
+Z1 04 4 4 work glbl fast 0
+=1-207bd250f2d9-67ce6713-15a-13174
+Z2 o-quiet -auto_acc_if_foreign -work xil_defaultlib -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip +acc
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;10.5;63
+R0
+T_opt1
+!s110 1741847359
+VQSTjk?Pd@X:@F<395[GKO1
+04 13 4 work tb_ALU_Random fast 0
+R1
+=1-207bd250f2d9-67d27b3f-1df-172bc
+R2
+R3
+n@_opt1
+R4
+R0
+vALU_Random
+!s10a 1741847093
+Z5 !s110 1741847334
+!i10b 1
+!s100 K_BC:;C?9^57^_R4YMnTg2
+I[>AR9oceAKE8NiDa4D4lI1
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1741847093
+8../../../../ALU.srcs/sources_1/new/ALU_Random.v
+F../../../../ALU.srcs/sources_1/new/ALU_Random.v
+L0 3
+Z7 OL;L;10.5;63
+r1
+!s85 0
+31
+Z8 !s108 1741847334.000000
+Z9 !s107 ../../../../ALU.srcs/sim_1/new/tb_ALU_Random.v|../../../../ALU.srcs/sources_1/new/ALU_Random.v|
+Z10 !s90 -incr|-mfcu|-work|xil_defaultlib|../../../../ALU.srcs/sources_1/new/ALU_Random.v|../../../../ALU.srcs/sim_1/new/tb_ALU_Random.v|
+!i113 0
+Z11 o-mfcu -work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+n@a@l@u_@random
+vglbl
+!s110 1741847391
+!i10b 1
+!s100 aGX4R92RO3^bD43HL2j:J2
+Ii@2]DfVnUU[WE=M5a<e[a3
+R6
+R0
+w1697210495
+8glbl.v
+Fglbl.v
+L0 6
+R7
+r1
+!s85 0
+31
+!s108 1741847391.000000
+!s107 glbl.v|
+!s90 -work|xil_defaultlib|glbl.v|
+!i113 0
+o-work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vtb_ALU_Random
+!s10a 1741847274
+R5
+!i10b 1
+!s100 ABP]cC`>=QZn7]H2o<nD33
+I[SzHO0jnIbo^O;XLOlefj3
+R6
+R0
+w1741847274
+8../../../../ALU.srcs/sim_1/new/tb_ALU_Random.v
+F../../../../ALU.srcs/sim_1/new/tb_ALU_Random.v
+L0 3
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R3
+ntb_@a@l@u_@random
