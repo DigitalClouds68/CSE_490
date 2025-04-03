@@ -9,13 +9,13 @@ module ALU (
         case (ALUControl)
             4'b0000: ALUOut = A + B;    // add
             4'b0001: ALUOut = A - B;    // sub
-            4'b0010: ALUOut = B << A;   // sll: shift left B by A bits (R[rt] by R[rs])
-            4'b0011: ALUOut = A & B;    // bitwise AND
-            4'b0100: ALUOut = A | B;    // bitwise OR
-            4'b0101: ALUOut = A ^ B;    // bitwise XOR
+            4'b0010: ALUOut = B << A;   // sll
+            4'b0011: ALUOut = A & B;    // AND
+            4'b0100: ALUOut = A | B;    // OR
+            4'b0101: ALUOut = A ^ B;    // XOR
             default: ALUOut = 16'h0000;
         endcase
-        // Zero flag is true if result is zero
+        // (Not sure if it's usable)Zero flag is true if result is zero
         Zero = (ALUOut == 16'h0000) ? 1'b1 : 1'b0;
     end
 endmodule
