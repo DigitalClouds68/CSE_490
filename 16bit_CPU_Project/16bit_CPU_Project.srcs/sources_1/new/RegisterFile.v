@@ -9,6 +9,7 @@ module RegisterFile (
     output wire  [15:0] read_data1,
     output wire  [15:0] read_data2
 );
+    /* Add sth here */
     reg [15:0] regfile [0:15];
     integer k;
     always @(posedge clk or posedge reset) begin
