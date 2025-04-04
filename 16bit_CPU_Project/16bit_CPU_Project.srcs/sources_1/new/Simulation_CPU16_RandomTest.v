@@ -1,4 +1,5 @@
 `timescale 1ns/1ps
+
 module CPU16_tb;
     reg clk;
     reg reset;
@@ -14,7 +15,9 @@ module CPU16_tb;
     integer i;
     initial begin
         for(i=0; i<64; i=i+1) cpu.IM.memory[i] = 16'h0000;
-        cpu.IM.memory[0]  = 16'h3105;  // addi r1, r0, 5
+
+        // Just random testing, can add sth here
+        cpu.IM.memory[0]  = 16'h3105; // addi r1, r0, 5
         cpu.IM.memory[1]  = 16'h3203;  // addi r2, r0, 3
         cpu.IM.memory[2]  = 16'h0120;  // add   r1, r2
         cpu.IM.memory[3]  = 16'h0121;  // sub   r1, r2
@@ -39,6 +42,7 @@ module CPU16_tb;
         @(posedge clk);
         #1 reset = 0;
 
+        // ns
         #(300);
 
     end
