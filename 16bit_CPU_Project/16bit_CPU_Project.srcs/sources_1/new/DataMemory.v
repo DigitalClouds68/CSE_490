@@ -16,7 +16,6 @@ module DataMemory (
     end
 /**************/
 
-    // Write on clock edge if MemWrite is asserted
     always @(posedge clk) begin
         if (MemWrite) begin
             memory[addr]   <= write_data[15:8];
