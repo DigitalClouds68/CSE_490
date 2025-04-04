@@ -18,15 +18,15 @@ module ControlUnit (
         Jump     = 0;
         ALUControl = 4'b0000;
         case(opcode)
-            4'b0000: begin // R-type instruction
-                // Determine ALU operation from function code
+            4'b0000: begin // R type
+
                 case(func)
                     4'b0000: ALUControl = 4'b0000; // add
-                    4'b0001: ALUControl = 4'b0001; // sub
-                    4'b0010: ALUControl = 4'b0010; // sll
-                    4'b0011: ALUControl = 4'b0011; // and
-                    4'b0100: ALUControl = 4'b0100; // or
-                    4'b0101: ALUControl = 4'b0101; // xor
+                    4'b0001: ALUControl = 4'b0001;
+                    4'b0010: ALUControl = 4'b0010;
+                    4'b0011: ALUControl = 4'b0011;
+                    4'b0100: ALUControl = 4'b0100;
+                    4'b0101: ALUControl = 4'b0101;
                     default: ALUControl = 4'b0000;
                 endcase
                 RegWrite = 1;
