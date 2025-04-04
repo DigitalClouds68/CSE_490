@@ -6,10 +6,10 @@ module InstructionMemory (
     integer i;
     
     initial begin
-        // Optionally initialize instructions here
+        // Can add some instr right here..................
         for(i = 0; i < 64; i = i + 1) 
             memory[i] = 16'h0000;
     end
     
-    assign instr = memory[addr[15:1]];  // use word index (PC>>1)
+    assign instr = memory[addr[15:1]];  // use word index
 endmodule
