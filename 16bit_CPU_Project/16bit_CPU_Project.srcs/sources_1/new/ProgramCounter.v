@@ -11,6 +11,6 @@ module ProgramCounter (
         else if (load)
             pc_out <= pc_in;
         else
-            pc_out <= pc_out + 16'd2;  // increment by 2 (word-aligned)
+            pc_out <= pc_out + 16'd2;  // +2
     end
 endmodule
