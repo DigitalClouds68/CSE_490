@@ -69,7 +69,7 @@ module CPU16 (
     );
     
     Mux2 aluSrcMux(.in0(reg_data2), .in1(imm_ext), .select(ALUSrc), .out(alu_in2));
-    Mux2 wbMux(.in0(alu_result), .in1(mem_data), .select(MemtoReg), .out(write_data));
+    Mux2 wbMux(.in0(alu_out), .in1(mem_data), .select(MemtoReg), .out(write_data));
 
     // Decode instruction fields
     assign opcode = instr[15:12];
