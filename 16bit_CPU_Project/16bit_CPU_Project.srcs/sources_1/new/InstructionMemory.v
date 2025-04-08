@@ -8,7 +8,8 @@ module InstructionMemory (
     initial begin
         for(i = 0; i < 64; i = i + 1) 
             memory[i] = 16'h0000;
-                
+/*     This!!!  ↓ */
+        $readmemh("instr.mem.txt", memory);  // load the instruction file.
     // Can add some instr right here..................
     end
     
