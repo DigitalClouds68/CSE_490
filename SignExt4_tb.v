@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_SignExt4;
+module SignExt4_tb;
     reg  [3:0] in;
     wire [15:0] out;
     SignExt4 uut (

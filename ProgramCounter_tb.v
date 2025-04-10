@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_ProgramCounter;
+module ProgramCounter_tb;
     reg clk;
     reg reset;
     reg [15:0] pc_in;
