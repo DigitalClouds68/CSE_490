@@ -1,6 +1,7 @@
 module CPU16 (
-    input wire clk,
-    input wire reset
+    input  wire        clk,
+    input  wire        reset,
+    output wire [15:0] debug_leds // LED
 );
     // Wires for interconnections
     wire    [15:0]   pc_current;
@@ -8,8 +9,8 @@ module CPU16 (
     wire             pc_load;
     wire    [15:0]   instr;
     wire    [3:0]    opcode;
-    wire    [3:0]    rs;
     wire    [3:0]    rt;
+    wire    [3:0]    rs;
     wire    [3:0]    func;
     wire    [11:0]   addr;        // jump address field
     wire    [15:0]   reg_data1;
@@ -32,21 +33,29 @@ module CPU16 (
     wire    [15:0]   branch_target;
     wire    [15:0]   jump_target;
 
-    // Instantiate modules and connect them
     ProgramCounter PC(
-        .clk(clk), .reset(reset), .pc_in(pc_next), .load(pc_load), .pc_out(pc_current)
+        .clk(clk), 
+        .reset(reset), 
+        .pc_in(pc_next), 
+        .load(pc_load), 
+        .pc_out(pc_current)
     );
     
     InstructionMemory IM(
-        .addr(pc_current), .instr(instr)
+        .addr(pc_current), 
+        .instr(instr)
     );
     
     RegisterFile RF(
         .clk(clk), .reset(reset),
         .RegWrite(RegWrite),
-        .read_reg1(rs), .read_reg2(rt),
-        .write_reg(rt), .write_data(write_data),
-        .read_data1(reg_data1), .read_data2(reg_data2)
+        .read_reg1(rs), 
+        .read_reg2(rt),
+        .write_reg(rt), 
+        .write_data(write_data),
+        .read_data1(reg_data1), 
+        .read_data2(reg_data2),
+        .debug_out(debug_signal)   // New debug Out
     );
     
     ALU alu(
@@ -90,5 +99,17 @@ module CPU16 (
     assign pc_load = Jump || branch_taken;
     assign pc_next = Jump ? jump_target :
                      branch_taken ? branch_target :
-                     16'b0;  // (pc_next is unused when pc_load=0, PC will auto-increment)
+                     16'b0;
+    
+    reg [15:0] led_value;
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            led_value <= 16'h0000;
+        end else begin
+            if (RegWrite)
+                led_value <= write_data;
+        end
+    end
+
+    assign debug_leds = led_value;
 endmodule
