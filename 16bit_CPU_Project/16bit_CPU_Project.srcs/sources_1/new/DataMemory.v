@@ -8,7 +8,7 @@ module DataMemory (
 );
     reg [7:0] memory [0:127];
 
-/* Can delete */
+/* Initialize all to zero Can delete */
     integer j;
     initial begin
         for(j = 0; j < 128; j = j + 1)
@@ -27,6 +27,6 @@ module DataMemory (
         if (MemRead) 
             read_data = { memory[addr], memory[addr + 1] };
         else 
-            read_data = 16'hZZZZ;
+            read_data = 16'hZZZZ; 
     end
 endmodule
