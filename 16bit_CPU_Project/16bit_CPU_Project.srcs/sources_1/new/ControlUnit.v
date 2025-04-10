@@ -18,15 +18,15 @@ module ControlUnit (
         Jump     = 0;
         ALUControl = 4'b0000;
         case(opcode)
-            4'b0000: begin // R type
-
+            4'b0000: begin
                 case(func)
                     4'b0000: ALUControl = 4'b0000; // add
-                    4'b0001: ALUControl = 4'b0001;
-                    4'b0010: ALUControl = 4'b0010;
-                    4'b0011: ALUControl = 4'b0011;
-                    4'b0100: ALUControl = 4'b0100;
-                    4'b0101: ALUControl = 4'b0101;
+                    4'b0001: ALUControl = 4'b0001; // sub
+                    4'b0010: ALUControl = 4'b0010; // sll
+                    4'b0011: ALUControl = 4'b0011; // and
+                    
+                    4'b0100: ALUControl = 4'b0100; // or
+                    4'b0101: ALUControl = 4'b0101; // xor
                     default: ALUControl = 4'b0000;
                 endcase
                 RegWrite = 1;
@@ -49,14 +49,14 @@ module ControlUnit (
                 ALUSrc   = 1;
             end
             4'b0100: begin // beq
-                ALUControl = 4'b0001;
+                ALUControl = 4'b0001; // sub (to compare R[rs] - R[rt])
                 ALUSrc   = 0;
             end
             4'b0101: begin // bne
                 ALUControl = 4'b0001; // sub
                 ALUSrc   = 0;
             end
-            4'b0110: begin // jmp
+            4'b0110: begin
                 Jump = 1;
             end
         endcase
